@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "arch",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/src/rqd/**",
+                "${workspaceFolder}/src/rqd/**",
+                "${workspaceFolder}/src/rqd/util/**",
+                "${workspaceFolder}/src/rqd/app/**",
+                "${workspaceFolder}/src/rqd/mid/**",
+                "${workspaceFolder}/src/rqd/drv/**",
+                "${workspaceFolder}/src/rqd/test/**",
+                "${workspaceFolder}/src/opt/**",
+                "${workspaceFolder}/src/opt/bsp/**",
+                "${workspaceFolder}/src/opt/hal/**",
+                "${workspaceFolder}/src/opt/sdk/**",
+                "${workspaceFolder}/src/opt/os/**",
+                "${workspaceFolder}/src/opt/osal/**",
+                "${workspaceFolder}/src/opt/open/**",
+                "${workspaceFolder}/src/opt/shell/**"
+            ],
+            "defines": [],
+            "compilerPath": "C:/Program Files/mingw64/bin/gcc.exe",
+            "cStandard": "c99",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
