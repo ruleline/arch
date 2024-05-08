@@ -6,7 +6,7 @@
  * @since 2024-04-02
  *
  * @authors ruleline (ruleline@outlook.com)
- * @date 2024-05-05
+ * @date 2024-05-08
  * @version 0.00.001
  *
  * @copyright ©2024 ruleline
@@ -20,6 +20,7 @@
  */
 
 #include "_def.h"
+#include "osal.h"
 
 /**
  * @brief 主任务
@@ -28,13 +29,9 @@
  */
 int
 main(void) {
-    #if defined (_ARM)
-        _initcalls();
-    #endif /* defined (_ARM) */
+    _initcalls();
 
-    #if defined (_FREERTOS)
-        vTaskStartScheduler();
-    #endif /* defined (_FREERTOS) */
+    os_start_scheduler();
 
     for (;;);
 
