@@ -5,7 +5,7 @@
  * @since 2024-03-24
  *
  * @authors ruleline (ruleline@outlook.com)
- * @date 2024-05-03
+ * @date 2024-05-08
  * @version 0.00.001
  *
  * @copyright ©2024 ruleline
@@ -22,7 +22,6 @@
 #define _CFG_H
 
 #define _C99
-#define _ARM
 #define _NDEBUG
 // #define _FREERTOS
 
