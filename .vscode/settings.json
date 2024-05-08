@@ -2,6 +2,7 @@
     "cSpell.words": [
         "gpio",
         "initcall",
-        "initcalls"
+        "initcalls",
+        "OSAL"
     ]
 }
