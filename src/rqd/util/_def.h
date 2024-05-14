@@ -88,7 +88,7 @@
 #endif /* !defined (false) */
 
 #if !defined (NULL)
-    #define NULL ((void *)0)
+    #define NULL ((void * )0)
 #endif /* !defined (NULL) */
 
 #if !defined (_array_size)
@@ -113,21 +113,21 @@
     #endif /* defined (_FREERTOS) */
 #endif /* defined (_NDEBUG) */
 
-#define _force_inline      __attribute__((always_inline)) inline
-#define _packed            __attribute__((packed))
-#define _packed_aligned(x) __attribute__((aligned(x)))
-#define _section(x)        __attribute__((section(x)))
-#define _unused            __attribute__((unused))
-#define _used              __attribute__((used))
+#define _force_inline __attribute__((always_inline)) inline
+#define _packed       __attribute__((packed))
+#define _aligned(x)   __attribute__((aligned(x)))
+#define _section(x)   __attribute__((section(x)))
+#define _unused       __attribute__((unused))
+#define _used         __attribute__((used))
 
 /**
  * @brief 初始化对象
  *
  */
 struct _init_obj {
-    void (* fn)(void);   /**< 回调 */
-    unsigned char level; /**< 等级 */
-} _packed_aligned(4); /* _init_obj */
+    void (*fn)(void); /**< 回调 */
+    u8 level;         /**< 等级 */
+} _aligned(4); /* _init_obj */
 
 #define _initcall_register(fn, level)                 \
     static _used _section(".initcall" #level ".init") \
@@ -152,12 +152,12 @@ struct _init_obj {
 
 #if !defined (_initcalls)
     #define _initcalls()                                \
-                for (unsigned char level = 0; 7 >= level; level++) \
+                for (u8 level = 0; 7 >= level; level++) \
                     _initcall(level);
 #endif /* !defined (_initcalls) */
 
 #if !defined (_offsetof)
-    #define _offsetof(TYPE, MEMBER) ((unsigned long int) &((TYPE *)0)->MEMBER)
+    #define _offsetof(TYPE, MEMBER) ((_size)&((TYPE * )0)->MEMBER)
 #endif /* !defined (_offsetof) */
 
 #if !defined (_container_of)
@@ -183,11 +183,11 @@ enum _state {
 }; /* _state */
 
 struct _ops {
-    unsigned long int (* open)(void * const obj);
-    unsigned long int (* close)(void * const obj);
-    unsigned long int (* read)(void * const obj);
-    unsigned long int (* write)(void * const obj);
-} _packed;
+    _size (* open)(void * const obj);
+    _size (* close)(void * const obj);
+    _size (* read)(void * const obj);
+    _size (* write)(void * const obj);
+} _packed; /* _ops */
 
 struct _super {
     char * const name;
@@ -196,6 +196,6 @@ struct _super {
     struct _super * parent;
     struct _super * child;
     struct _ops   * ops;
-} _packed;
+} _packed; /* _super */
 
 #endif /* _DEF_H */
