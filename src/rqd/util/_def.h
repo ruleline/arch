@@ -172,9 +172,9 @@ struct _init_obj {
  *       type    - 结构体类型
  *       member  - 成员
  */
-#define _container_of(pointer, type, member)                         \
-            ({ const typeof(((type * )0)->member) * ptr = (pointer); \
-                (type * )((char * )ptr - _offsetof(type, member)); })
+#define _container_of(pointer, type, member)                       \
+            ({ const typeof(((type * )0)->member) * p = (pointer); \
+                (type * )((char * )p - _offsetof(type, member)); })
 #endif /* !defined (_container_of) */
 
 /**
