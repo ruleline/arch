@@ -5,7 +5,7 @@
  * @since 2024-03-24
  *
  * @authors ruleline (ruleline@outlook.com)
- * @date 2024-05-03
+ * @date 2024-05-14
  * @version 0.00.001
  *
  * @copyright ©2024 ruleline
@@ -27,17 +27,57 @@
     #include "FreeRTOS.h"
 #endif /* defined (_FREERTOS) */
 
+#if !defined (u8)
+    #define u8 unsigned char
+#endif /* !defined (u8) */
+
+#if !defined (u16)
+    #define u16 unsigned short int
+#endif /* !defined (u16) */
+
+#if !defined (u32)
+    #define u32 unsigned int
+#endif /* !defined (u32) */
+
+#if !defined (u64)
+    #define u64 unsigned long long int
+#endif /* !defined (u64) */
+
+#if !defined (i8)
+    #define i8 signed char
+#endif /* !defined (i8) */
+
+#if !defined (i16)
+    #define i16 signed short int
+#endif /* !defined (i16) */
+
+#if !defined (i32)
+    #define i32 signed int
+#endif /* !defined (i32) */
+
+#if !defined (i64)
+    #define i64 signed long long int
+#endif /* !defined (i64) */
+
+#if !defined (_size)
+    #define _size unsigned long int
+#endif /* !defined (_size) */
+
+#if !defined (f32)
+    #define f32 float
+#endif /* !defined (f32) */
+
+#if !defined (f64)
+    #define f64 double
+#endif /* !defined (f64) */
+
 #if !defined (bool)
     #if defined (_C99)
         #define bool _Bool
     #else /* !defined (_C99) */
-        #define bool int
+        #define bool u8
     #endif /* defined (_C99) */
 #endif /* !defined (bool) */
-
-#if !defined (NULL)
-    #define NULL ((void *)0)
-#endif /* !defined (NULL) */
 
 #if !defined (true)
     #define true  (1)
@@ -46,6 +86,10 @@
 #if !defined (false)
     #define false (0)
 #endif /* !defined (false) */
+
+#if !defined (NULL)
+    #define NULL ((void *)0)
+#endif /* !defined (NULL) */
 
 #if !defined (_array_size)
     #define _array_size(array) (sizeof(array) / sizeof(array[0]))
