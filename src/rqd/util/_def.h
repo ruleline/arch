@@ -91,12 +91,16 @@
     #define NULL ((void * )0)
 #endif /* !defined (NULL) */
 
+#if !defined (_not_used)
+    #define _not_used(x) ((void)(0))
+#endif /* !defined (_not_used) */
+
 #if !defined (_array_size)
     #define _array_size(array) (sizeof(array) / sizeof(array[0]))
 #endif /* !defined (_array_size) */
 
 #if defined (_NDEBUG)
-    #define _assert(...) ((void)0)
+    #define _assert(...) (_not_used(...))
 #else /* !defined (_NDEBUG) */
     #if defined (_FREERTOS)
         #define _assert(expr) configASSERT(expr)
@@ -108,7 +112,7 @@
                 log("assertion failed: %s\n", #expr);            \
                 for (;;);                                        \
             } else {                                             \
-                (void)0;                                         \
+                _not_used(expr);                                 \
             }
     #endif /* defined (_FREERTOS) */
 #endif /* defined (_NDEBUG) */
