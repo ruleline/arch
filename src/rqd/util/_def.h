@@ -5,7 +5,7 @@
  * @since 2024-03-24
  *
  * @authors ruleline (ruleline@outlook.com)
- * @date 2024-05-14
+ * @date 2024-05-19
  * @version 0.00.001
  *
  * @copyright ©2024 ruleline
@@ -194,12 +194,17 @@ struct _ops {
 } _packed; /* _ops */
 
 struct _super {
-    char * const name;
+    /* 链表 */
     struct _super * next;
     struct _super * prev;
     struct _super * parent;
     struct _super * child;
+
+    /* 方法 */
     struct _ops   * ops;
+
+    /* 属性 */
+    char * const name;
 } _packed; /* _super */
 
 #endif /* _DEF_H */
